@@ -15,11 +15,6 @@ module Konacha
       @examples, @groups = {}, {}
     end
 
-    def send(name, attrs)
-      Rails.logger.debug name + " " + attrs.inspect
-      super
-    end
-
     def start(expected_example_count=nil)
       @start_time = Time.now
       process_event :start, expected_example_count
