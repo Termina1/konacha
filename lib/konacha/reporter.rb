@@ -16,7 +16,7 @@ module Konacha
     end
 
     def send(name, attrs)
-      puts name + " " + attrs.inspect
+      Rails.logger.debug name + " " + attrs.inspect
       super
     end
 

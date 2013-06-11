@@ -21,7 +21,9 @@ module Konacha
       done = false
       begin
         sleep 0.1
+        Rails.logger.debug "trying to get events"
         events = JSON.parse(session.evaluate_script('window.top.Konacha.getEvents()'))
+        Rails.logger.debug "got events #{events.inspect}"
         if events.present?
           events[events_consumed..-1].each do |event|
             done = true if event['event'] == 'end'
